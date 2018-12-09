@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B6382A6-DC99-4A6E-AA46-AF41F7FD2649}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DebugAdapter2.Test</RootNamespace>
+    <AssemblyName>DebugAdapter2.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChakraCore.NET, Version=1.3.2.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="ChakraCore.NET.Core, Version=1.1.2.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ChakraCore.NET.Hosting, Version=1.0.2.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="ChakraCore.NET.Promise, Version=1.1.1.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.Promise.dll</HintPath>
+    </Reference>
+    <Reference Include="ChakraCore.NET.ShareMemoryObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.ShareMemoryObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="ChakraCore.NET.Timer, Version=1.0.1.0, Culture=neutral, PublicKeyToken=ed5bbb807007bf49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Release\net47\ChakraCore.NET.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ChakraCore.NET\source\ChakraCore.NET.Hosting\bin\Debug\net47\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DictionaryWrapper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Scripts\.vscode\launch.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\myLib.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\SimpleProcessor.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ChakraCore.NET.DebugAdapter2.VSCode.StrongName">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ChakraCore">
+      <Version>1.11.3</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\myLib.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\SimpleProcessor.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\myLib.ts">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+      <Content Include="Scripts\SimpleProcessor.ts">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
